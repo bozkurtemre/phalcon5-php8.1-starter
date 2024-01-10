@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: phalcon5
+    platform: linux/amd64
+    ports:
+      - "80:80"
+      - "443:443"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /root/.bash_history
+      - ./:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/conf.d/vhost.conf:/etc/nginx/conf.d/vhost.conf
+      - ./docker/php/www.conf:/etc/php-fpm.d/www.conf
+      - ./docker/php/php-development.ini:/etc/php.d/php-development.ini
+      - ./storage/logs/nginx:/var/log/nginx
+      - ./storage/logs/php-fpm:/var/log/php-fpm
+      - ./storage/logs/xdebug:/var/log/xdebug
+    depends_on:
+      - phalcon5-mysql
+      - phalcon5-redis
+
+  phalcon5-mysql:
+    container_name: phalcon5-mysql
+    image: mysql:8.0.33
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "phalcon"
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./docker/my.cnf:/etc/mysql/conf.d/my.cnf
+      - mysql_data:/var/lib/mysql
+
+  phalcon5-redis:
+    container_name: phalcon5-redis
+    image: redis:6.2.7
+    ports:
+      - "6379:6379"
+    command:
+      redis-server /etc/redis/redis.conf
+    volumes:
+      - ./docker/redis.conf:/etc/redis/redis.conf
+
+volumes:
+  mysql_data:

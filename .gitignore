@@ -1,0 +1,19 @@
+# Mac OS X Finder
+.DS_Store*
+
+# Framework Files
+/storage/cache/
+/storage/logs/
+
+# Composer Files
+/vendor/
+
+# IDE Files
+/.idea/
+/.vscode/
+
+# Code Coverage
+php_test_results_*.txt
+.php_cs.cache
+
+.env

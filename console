@@ -1,0 +1,50 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Phalcon\Autoload\Loader;
+use Phalcon\Cli\Console;
+use Phalcon\Cli\Dispatcher;
+use Phalcon\Di\FactoryDefault\Cli;
+
+$loader = new Loader();
+
+$loader->setNamespaces([
+    'App\Library' => 'library/',
+    'App\Models' => 'app/Models',
+]);
+
+$loader->register();
+
+$container = new Cli();
+$dispatcher = new Dispatcher();
+
+$dispatcher->setDefaultNamespace('App\Tasks');
+
+$container->setShared('dispatcher', $dispatcher);
+
+$container->setShared('config', function () {
+    return include_once 'config/config.php';
+});
+
+$console = new Console($container);
+
+$arguments = [];
+foreach ($argv as $k => $arg) {
+    if ($k === 1) {
+        $arguments['task'] = $arg;
+    } elseif ($k === 2) {
+        $arguments['action'] = $arg;
+    } elseif ($k >= 3) {
+        $arguments['params'][] = $arg;
+    }
+}
+
+try {
+    $console->handle($arguments);
+} catch (Throwable $throwable) {
+    fwrite(STDERR, $throwable->getMessage() . PHP_EOL);
+    exit(1);
+}
+
