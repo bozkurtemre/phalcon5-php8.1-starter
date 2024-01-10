@@ -37,7 +37,7 @@ If you do not have PHP installed on your machine or do not wish to install it, y
 can run the application in a docker container. You will need [docker][9] and [docker-compose][10].
 
 ```shell
-docker-compose up -d --build 
+docker compose up -d --build 
 ```
 
 will build and start your environment.
