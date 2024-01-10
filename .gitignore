@@ -1,10 +1,6 @@
 # Mac OS X Finder
 .DS_Store*
 
-# Framework Files
-/storage/cache/
-/storage/logs/
-
 # Composer Files
 /vendor/
 
