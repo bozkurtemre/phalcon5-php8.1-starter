@@ -17,6 +17,7 @@ $config['application'] = [
 $config['directory'] = [
     'appDir' => APP_PATH . '/',
     'controllersDir' => APP_PATH . '/Controllers/',
+    'constantsDir' => APP_PATH . '/Constants/',
     'modelsDir' => APP_PATH . '/Models/',
     'migrationsDir' => APP_PATH . '/Migrations/',
     'pluginsDir' => APP_PATH . '/Plugins/',
