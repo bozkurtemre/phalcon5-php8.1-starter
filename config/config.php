@@ -5,8 +5,7 @@ declare(strict_types=1);
 use Phalcon\Config\Config;
 
 $config['application'] = [
-    'name' => 'Phalcon Skeleton',
-    'version' => '1.0.0',
+    'name' => env('APP_NAME', 'Phalcon'),
     'env' => env('APP_ENV', 'local'),
     'debug' => env('APP_DEBUG', false),
     'timezone' => env('APP_TIMEZONE', 'UTC'),
