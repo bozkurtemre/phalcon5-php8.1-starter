@@ -25,6 +25,7 @@ switch to the relevant branch.
 * [Apache][2] Web Server with [mod_rewrite][3] enabled or [Nginx][4] Web Server
 * Latest stable [Phalcon Framework release][5] extension enabled
 * [MySQL][6] >= 8.0
+* [Redis][11] >= 6.2
 
 ### Installation
 
@@ -57,3 +58,4 @@ will allow you to enter the environment.
 [8]: https://github.com/phalcon/invo/blob/master/docs/LICENSE.md
 [9]: https://docs.docker.com/engine/install/
 [10]: https://docs.docker.com/compose/install/
+[11]: https://redis.io/
