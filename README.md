@@ -29,9 +29,9 @@ switch to the relevant branch.
 
 ### Installation
 
-1. Copy project to local environment - `git clone git@github.com:emrebbozkurt/phalcon-app.git`
+1. Copy project to local environment - `git clone git@github.com:emrebbozkurt/phalcon5-php8.1-starter.git`
 2. Edit .env file with your DB connection information
-3. Run DB migrations `php migrate migrate`
+3. Run DB migration commands with `php migrate`
 
 If you do not have PHP installed on your machine or do not wish to install it, you 
 can run the application in a docker container. You will need [docker][9] and [docker-compose][10].
