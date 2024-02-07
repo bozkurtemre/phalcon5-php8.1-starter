@@ -29,7 +29,7 @@ switch to the relevant branch.
 
 ### Installation
 
-1. Copy project to local environment - `git clone git@github.com:emrebbozkurt/phalcon5-php8.1-starter.git`
+1. Copy project to local environment - `git clone git@github.com:bozkurtemre/phalcon5-php8.1-starter.git`
 2. Edit .env file with your DB connection information
 3. Run DB migration commands with `php migrate`
 
